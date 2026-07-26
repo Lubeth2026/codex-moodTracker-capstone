@@ -46,5 +46,12 @@ def update_mood(id):
         }).eq("id", id).execute())
     return response.data
 
+@app.delete("/api/moods/<int:id>")
+def delete_mood(id):
+
+    response = (supabase.table("user_moods").delete().eq("id", id).execute())
+    return {
+        "message": "Mood deleted successfully."}, 200
+
 if __name__ == '__main__':
     app.run(debug=True)
