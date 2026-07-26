@@ -13,11 +13,17 @@ function ManageMood() {
       event.preventDefault();
 
       try {
-        const response = await fetch("http://127.0.0.1:5000/api/moods", {
-          method: "POST",
-          headers: {"Content-Type": "application/json"},
-          body: JSON.stringify({mood: mood,mood_scale: Number(scale),notes: notes}),
-        });
+        const response = await fetch(import.meta.env.VITE_BACKEND_URL + "/api/moods",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              mood: mood,
+              mood_scale: Number(scale),
+              notes: notes,
+            }),
+          },
+        );
 
         if (!response.ok) {
           throw new Error("Failed to create mood");
@@ -33,7 +39,7 @@ function ManageMood() {
 
     async function getOneMood() {
       try {
-        const response = await fetch("http://127.0.0.1:5000/api/moods/" + id);
+        const response = await fetch(import.meta.env.VITE_BACKEND_URL + "/api/moods" + id);
         const data = await response.json();
 
         setMood(data[0].mood);
@@ -54,14 +60,17 @@ function ManageMood() {
       event.preventDefault();
 
       try {
-        const response = await fetch("http://127.0.0.1:5000/api/moods/" + id, {
-          method: "PUT",
-          headers: {"Content-Type": "application/json"},
-          body: JSON.stringify({
-            mood: mood,
-            mood_scale: Number(scale),
-            notes: notes}),
-        });
+        const response = await fetch(import.meta.env.VITE_BACKEND_URL + "/api/moods" + id,
+          {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              mood: mood,
+              mood_scale: Number(scale),
+              notes: notes,
+            }),
+          },
+        );
 
         if (!response.ok) {
           throw new Error("Failed to update mood");

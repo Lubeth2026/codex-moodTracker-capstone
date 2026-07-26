@@ -9,7 +9,7 @@ function Dashboard() {
 
     async function getMoods() {
        try {
-         const response = await fetch("http://127.0.0.1:5000/api/moods");
+         const response = await fetch(import.meta.env.VITE_BACKEND_URL + "/api/moods");
          const data = await response.json();
 
          setMoods(data);
@@ -25,7 +25,9 @@ function Dashboard() {
     
     async function deleteMood(id) {
         try {
-            const response = await fetch("http://127.0.0.1:5000/api/moods/" + id, {method: "DELETE"});
+            const response = await fetch(import.meta.env.VITE_BACKEND_URL + "/api/moods" + id,
+              { method: "DELETE" },
+            );
             
             if (!response.ok) {
                 throw new Error("Failed to delete mood");
