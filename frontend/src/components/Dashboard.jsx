@@ -40,13 +40,14 @@ function Dashboard() {
     function editMood(id) {
       navigate("/manage/" + id);
     }
-    
+
   return (
     <div>
-      <h2>My Mood Entries</h2>
-      {moods.map((mood) => (
-        <MoodCard key={mood.id} mood={mood} onDelete={deleteMood} onEdit={editMood} />
-      ))}
+      <h1>My Mood Entries</h1>
+      {moods.length === 0 ? (<p>No moods have been added yet.</p>) : (
+        moods.map((mood) => (
+          <MoodCard key={mood.id} mood={mood} onDelete={deleteMood} onEdit={editMood} />))
+      )}
     </div>
   );
 }

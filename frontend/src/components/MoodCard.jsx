@@ -5,7 +5,7 @@ function MoodCard({mood, onDelete, onEdit}) {
 
   return (
     <div>
-      <h3>{mood.mood}</h3>
+      <h2>{mood.mood}</h2>
       <p>Scale: {mood.mood_scale}</p>
       <p>{mood.notes}</p>
       <button onClick={() => onEdit(mood.id)}>✏️</button>

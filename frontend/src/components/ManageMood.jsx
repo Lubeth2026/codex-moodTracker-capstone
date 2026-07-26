@@ -84,7 +84,7 @@ function ManageMood() {
 
   return (
     <div>
-      <h2>{id ? "Update Mood" : "Add New Mood"}</h2>
+      <h1>{id ? "Update Mood" : "Add New Mood"}</h1>
       <form onSubmit={id ? updateMood : createMood}>
         <div>
           <label>Mood:</label>

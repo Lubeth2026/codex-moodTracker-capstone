@@ -4,13 +4,14 @@ import { Route, Routes } from 'react-router-dom';
 import Welcome from './components/Welcome';
 import Dashboard from './components/Dashboard';
 import ManageMood from './components/ManageMood';
+import NavBar from './components/NavBar';
 
 function App() {
   
 
   return (
     <>
-      <h1>Moods</h1>
+      <NavBar />
       <Routes>
         <Route path="/" element={<Welcome />} />
         <Route path="/moods" element={<Dashboard />} />
