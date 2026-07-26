@@ -24,7 +24,7 @@ function ManageMood() {
         }
 
         const data = await response.json();
-        console.log(data);
+        clearForm();
         navigate("/moods");
       } catch (error) {
         console.error(error);
@@ -50,26 +50,69 @@ function ManageMood() {
       }
     }, [id]);
 
+    async function updateMood(event) {
+      event.preventDefault();
+
+      try {
+        const response = await fetch("http://127.0.0.1:5000/api/moods/" + id, {
+          method: "PUT",
+          headers: {"Content-Type": "application/json"},
+          body: JSON.stringify({
+            mood: mood,
+            mood_scale: Number(scale),
+            notes: notes}),
+        });
+
+        if (!response.ok) {
+          throw new Error("Failed to update mood");
+        }
+
+        const data = await response.json();
+        console.log(data);
+        clearForm();
+        navigate("/moods");
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    function clearForm() {
+      setMood("");
+      setScale("");
+      setNotes("");
+    }
+
   return (
     <div>
       <h2>{id ? "Update Mood" : "Add New Mood"}</h2>
-      <form onSubmit={createMood}>
+      <form onSubmit={id ? updateMood : createMood}>
         <div>
           <label>Mood:</label>
-          <input type="text" value={mood} onChange={(event) => setMood(event.target.value)} />
+          <input
+            type="text"
+            value={mood}
+            onChange={(event) => setMood(event.target.value)}
+          />
         </div>
 
         <div>
           <label>Mood Scale:</label>
-          <input type="number" value={scale} onChange={(event) => setScale(event.target.value)} />
+          <input
+            type="number"
+            value={scale}
+            onChange={(event) => setScale(event.target.value)}
+          />
         </div>
 
         <div>
           <label>Notes:</label>
-          <textarea value={notes} onChange={(event) => setNotes(event.target.value)} />
+          <textarea
+            value={notes}
+            onChange={(event) => setNotes(event.target.value)}
+          />
         </div>
 
-        <button>Save Mood</button>
+        <button>{id ? "Update Mood" : "Save Mood"}</button>
       </form>
     </div>
   );
