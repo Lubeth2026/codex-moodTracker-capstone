@@ -35,5 +35,16 @@ def create_mood():
         }).execute())
     return response.data, 201
 
+@app.put("/api/moods/<int:id>")
+def update_mood(id):
+    data = request.get_json()
+
+    response = (supabase.table("user_moods").update({
+            "mood": data["mood"],
+            "mood_scale": data["mood_scale"],
+            "notes": data["notes"]
+        }).eq("id", id).execute())
+    return response.data
+
 if __name__ == '__main__':
     app.run(debug=True)
