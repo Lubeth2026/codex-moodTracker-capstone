@@ -12,12 +12,14 @@ function App() {
   return (
     <>
       <NavBar />
+      <main>
       <Routes>
         <Route path="/" element={<Welcome />} />
         <Route path="/moods" element={<Dashboard />} />
         <Route path="/manage" element={<ManageMood />} />
         <Route path="/manage/:id" element={<ManageMood />} />
       </Routes>
+      </main>
     </>
   );
 }

@@ -83,36 +83,41 @@ function ManageMood() {
     }
 
   return (
-    <div>
+    <div className="form-container">
       <h1>{id ? "Update Mood" : "Add New Mood"}</h1>
       <form onSubmit={id ? updateMood : createMood}>
         <div>
-          <label>Mood:</label>
+          <label htmlFor="mood">Mood:</label>
           <input
             type="text"
+            id="mood"
             value={mood}
             onChange={(event) => setMood(event.target.value)}
           />
         </div>
 
         <div>
-          <label>Mood Scale:</label>
+          <label htmlFor="scale">Mood Scale:</label>
           <input
             type="number"
+            id="scale"
             value={scale}
             onChange={(event) => setScale(event.target.value)}
           />
         </div>
 
         <div>
-          <label>Notes:</label>
+          <label htmlFor="notes">Notes:</label>
           <textarea
             value={notes}
+            id="notes"
             onChange={(event) => setNotes(event.target.value)}
           />
         </div>
 
-        <button>{id ? "Update Mood" : "Save Mood"}</button>
+        <div className="submit-button">
+          <button>{id ? "Update Mood" : "Save Mood"}</button>
+        </div>
       </form>
     </div>
   );

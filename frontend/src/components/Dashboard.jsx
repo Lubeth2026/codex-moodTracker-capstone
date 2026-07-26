@@ -43,7 +43,7 @@ function Dashboard() {
 
   return (
     <div>
-      <h1>My Mood Entries</h1>
+      <h1 className="dashboard-title">My Mood Entries</h1>
       {moods.length === 0 ? (<p>No moods have been added yet.</p>) : (
         moods.map((mood) => (
           <MoodCard key={mood.id} mood={mood} onDelete={deleteMood} onEdit={editMood} />))
