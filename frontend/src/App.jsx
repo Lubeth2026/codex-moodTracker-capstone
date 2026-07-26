@@ -3,6 +3,7 @@ import './App.css'
 import { Route, Routes } from 'react-router-dom';
 import Welcome from './components/Welcome';
 import Dashboard from './components/Dashboard';
+import ManageMood from './components/ManageMood';
 
 function App() {
   
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Welcome />} />
         <Route path="/moods" element={<Dashboard />} />
+        <Route path="/manage" element={<ManageMood />} />
       </Routes>
     </>
   );
