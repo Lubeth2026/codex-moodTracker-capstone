@@ -1,9 +1,11 @@
 
 import React, { useEffect, useState } from 'react'
 import MoodCard from './MoodCard';
+import { useNavigate } from 'react-router-dom';
 
 function Dashboard() {
     const [moods, setMoods] = useState([]);
+    const navigate = useNavigate();
 
     async function getMoods() {
        try {
@@ -14,6 +16,10 @@ function Dashboard() {
        } catch (error) {
          console.error(error);
        }
+    }
+
+    function editMood(id) {
+      navigate("/manage/" + id);
     }
 
     useEffect(() => {
@@ -38,7 +44,7 @@ function Dashboard() {
     <div>
       <h2>My Mood Entries</h2>
       {moods.map((mood) => (
-        <MoodCard key={mood.id} mood={mood} onDelete={deleteMood} />
+        <MoodCard key={mood.id} mood={mood} onDelete={deleteMood} onEdit={editMood} />
       ))}
     </div>
   );
