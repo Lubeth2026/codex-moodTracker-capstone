@@ -53,5 +53,11 @@ def delete_mood(id):
     return {
         "message": "Mood deleted successfully."}, 200
 
+@app.get("/api/moods/<int:id>")
+def get_single_mood(id):
+
+    response = (supabase.table("user_moods").select("*").eq("id", id).execute())
+    return response.data
+
 if __name__ == '__main__':
     app.run(debug=True)
