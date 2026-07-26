@@ -2,6 +2,7 @@
 import './App.css'
 import { Route, Routes } from 'react-router-dom';
 import Welcome from './components/Welcome';
+import Dashboard from './components/Dashboard';
 
 function App() {
   
@@ -11,6 +12,7 @@ function App() {
       <h1>Moods</h1>
       <Routes>
         <Route path="/" element={<Welcome />} />
+        <Route path="/moods" element={<Dashboard />} />
       </Routes>
     </>
   );
