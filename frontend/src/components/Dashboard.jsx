@@ -1,5 +1,6 @@
 
 import React, { useEffect, useState } from 'react'
+import MoodCard from './MoodCard';
 
 function Dashboard() {
     const [moods, setMoods] = useState([]);
@@ -23,11 +24,7 @@ function Dashboard() {
     <div>
       <h2>My Mood Entries</h2>
       {moods.map((mood) => (
-        <div key={mood.id}>
-          <h3>{mood.mood}</h3>
-          <p>Scale: {mood.mood_scale}</p>
-          <p>{mood.notes}</p>
-        </div>
+        <MoodCard key={mood.id} mood={mood} />
       ))}
     </div>
   );
