@@ -7,7 +7,7 @@ from supabase import create_client, Client
 
 load_dotenv()
 app = Flask(__name__)
-CORS(app)
+CORS(app, origin=[os.getenv("ORIGIN")])
 
 supabase: Client = create_client(
     os.getenv("SUPABASE_URL"),
