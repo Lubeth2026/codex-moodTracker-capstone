@@ -91,6 +91,7 @@ function ManageMood() {
       setNotes("");
     }
 
+    
   return (
     <div className="form-container">
       <h1>{id ? "Update Mood" : "Add New Mood"}</h1>
