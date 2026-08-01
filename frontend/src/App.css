@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 
-/* Whole application */
+/* Whole app */
 body {
   font-family: Arial, Helvetica, sans-serif;
   background-color: #f4f4f4;
@@ -72,10 +72,6 @@ main {
   justify-content: center;
   gap: 20px;
 }
-
-/* ==========================
-   Buttons
-========================== */
 
 .button {
   display: inline-block;
@@ -200,7 +196,7 @@ main {
   margin-top: 30px;
 }
 
-/*Responsive Media Query Design*/
+/*Media Query Design*/
 @media (max-width: 768px) {
 
   .navbar {
@@ -215,7 +211,7 @@ main {
   }
 
   .welcome h1 {
-    font-size: 2.2rem;
+    font-size: 35px;
   }
 
   .welcome-buttons {

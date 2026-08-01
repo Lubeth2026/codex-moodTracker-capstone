@@ -39,14 +39,14 @@ function ManageMood() {
 
     async function getOneMood() {
       try {
-        const response = await fetch(import.meta.env.VITE_BACKEND_URL + "/api/moods" + id);
+        const response = await fetch(import.meta.env.VITE_BACKEND_URL + "/api/moods/" + id);
         const data = await response.json();
 
         setMood(data[0].mood);
         setScale(data[0].mood_scale);
         setNotes(data[0].notes);
       } catch (error) {
-        console.error(error);
+        console.log(error);
       }
     }
 

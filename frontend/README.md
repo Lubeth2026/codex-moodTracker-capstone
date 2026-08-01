@@ -1,11 +1,11 @@
 # Mood Tracker Capstone 
 
 ## Overview
-Mood Tracker is a full-stack web app that allows users to record & manage their daily moods. Users can create, view, update, & delete mood entries while adding notes & rating their mood on a scale from 1 to 10. The app stores all data in a Supabase database through a Flask REST API & provides a responsive React user interface.
+Mood Tracker is a full-stack web app that allows users to record & manage their daily moods. Users can create, view, update, & delete mood entries while adding notes & rating their mood on a scale from 1 to 10. The app stores all data in a Supabase database through a Flask REST API & provides a React user interface.
 
 The project demonstrates a complete CRUD (Create, Read, Update, Delete) app & cloud deployment using modern web development technologies.
 
-### Setup Instrucxtions
+### Setup Instructions
 1. Clone the repo
 git clone https://github.com/Lubeth2026/codex-moodTracker-capstone.git
 cd codex-moodTracker-capstone/
