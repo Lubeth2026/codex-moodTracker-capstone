@@ -39,11 +39,7 @@ def create_mood():
 def update_mood(id):
     data = request.get_json()
 
-    response = (supabase.table("user_moods").update({
-            "mood": data["mood"],
-            "mood_scale": data["mood_scale"],
-            "notes": data["notes"]
-        }).eq("id", id).execute())
+    response = (supabase.table("user_moods").update(data).eq("id", id).execute())
     return response.data
 
 @app.delete("/api/moods/<int:id>")
